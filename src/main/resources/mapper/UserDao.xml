@@ -14,6 +14,10 @@
         <result property="registerTime" column="register_time" jdbcType="TIMESTAMP"/>
     </resultMap>
 
+    <sql id="Base_Column_List">
+        id, username, password, avatar_url, user_type, tel_num, email, register_time
+    </sql>
+
     <!--查询单个-->
     <select id="queryById" resultMap="BaseResultMap">
         select
@@ -102,5 +106,22 @@
     <delete id="deleteById">
         delete from demo.user where id = #{id}
     </delete>
+
+    <select id="selectByEmail" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from demo.user
+        where email = #{email,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectByUsername" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from demo.user
+        where username = #{username,jdbcType=VARCHAR}
+    </select>
+
+
+
 
 </mapper>

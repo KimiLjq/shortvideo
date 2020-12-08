@@ -1,7 +1,6 @@
 package com.stu.shortvideo.dao;
 
 import com.stu.shortvideo.entity.User;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
